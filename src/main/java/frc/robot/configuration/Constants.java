@@ -17,8 +17,28 @@ public class Constants {
          * <h3>Mecanum Drive Constants</h3>
          */
         public static final class Mecanum {
+            public static final boolean kUseFieldCentric = false;
 
             public static final class Chassis {
+
+            }
+
+            public static final class Motors {
+
+                // Network Port(s)
+                public static final int kFrontLeftPortID = 20;
+                public static final int kFrontRightPortID = 21;
+                public static final int kBackLeftPortID = 22;
+                public static final int kBackRightPortID = 23;
+
+                public static final boolean kFrontLeftReversed = true;
+                public static final boolean kFrontRightReversed = false;
+                public static final boolean kBackLeftReversed = true;
+                public static final boolean kBackRightReversed = false;
+
+                public static final double kOutputModDefault = 0.50;
+                public static final double kOutputModHigh = 0.75;
+                public static final double kOutputModLow = 0.35;
 
             }
 
@@ -56,8 +76,13 @@ public class Constants {
         public static final class DriverOne {
 
             public static final class Primary {
+                public static final int kPortID = 0;
+                public static final double kDeadband = 0.05;
 
                 public static final class Axis {
+                    public static final int kSpeedX = 0;
+                    public static final int kSpeedY = 1;
+                    public static final int kSpeedRotational = 4;
 
                 }
 
@@ -68,6 +93,8 @@ public class Constants {
             }
 
             public static final class Secondary {
+                public static final int kPortID = 1;
+                public static final double kDeadband = 0.05;
 
                 public static final class Axis {
 
@@ -85,6 +112,8 @@ public class Constants {
         public static final class DriverTwo {
 
             public static final class Primary {
+                public static final int kPortID = 2;
+                public static final double kDeadband = 0.05;
 
                 public static final class Axis {
 
@@ -97,6 +126,8 @@ public class Constants {
             }
 
             public static final class Secondary {
+                public static final int kPortID = 3;
+                public static final double kDeadband = 0.05;
 
                 public static final class Axis {
 

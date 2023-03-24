@@ -40,8 +40,8 @@ public class DriveMecanumRobotCentric extends CommandBase {
 
     // Call Drive Method for Mecanum Robot Centric
     sysMecanumDrivetrain.driveCartesian(speedX.getAsDouble(), 
-                                        speedY.getAsDouble(), 
-                                        speedRotation.getAsDouble());
+                                        - speedY.getAsDouble(), 
+                                        - speedRotation.getAsDouble());
   }
 
   // Called once the command ends or is interrupted.

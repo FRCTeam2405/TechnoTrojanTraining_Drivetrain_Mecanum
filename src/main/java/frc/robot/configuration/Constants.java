@@ -26,10 +26,10 @@ public class Constants {
             public static final class Motors {
 
                 // Network Port(s)
-                public static final int kFrontLeftPortID = 20;
-                public static final int kFrontRightPortID = 21;
-                public static final int kBackLeftPortID = 22;
-                public static final int kBackRightPortID = 23;
+                public static final int kFrontLeftPortID = 10;
+                public static final int kFrontRightPortID = 11;
+                public static final int kBackLeftPortID = 12;
+                public static final int kBackRightPortID = 13;
 
                 public static final boolean kFrontLeftReversed = true;
                 public static final boolean kFrontRightReversed = false;
@@ -80,8 +80,8 @@ public class Constants {
                 public static final double kDeadband = 0.05;
 
                 public static final class Axis {
-                    public static final int kSpeedX = 0;
-                    public static final int kSpeedY = 1;
+                    public static final int kSpeedX = 1;
+                    public static final int kSpeedY = 0;
                     public static final int kSpeedRotational = 4;
 
                 }

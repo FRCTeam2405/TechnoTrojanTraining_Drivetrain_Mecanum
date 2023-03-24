@@ -10,6 +10,7 @@ import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.configuration.Constants;
 
@@ -52,6 +53,8 @@ public class MecanumDrivetrain extends SubsystemBase {
     driveMecanum = new MecanumDrive(driveFrontLeft, driveBackLeft, driveFrontRight, driveBackRight);
 
     // Initialize IMU
+    useFieldCentric = Constants.Drivetrains.Mecanum.kUseFieldCentric;
+
     try {
       driveIMU = new AHRS(SPI.Port.kMXP);
       useFieldCentric = true;
@@ -80,10 +83,10 @@ public class MecanumDrivetrain extends SubsystemBase {
     return new Rotation2d(driveIMU.getAngle()) ;
   }
 
-
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+
   }
 
 

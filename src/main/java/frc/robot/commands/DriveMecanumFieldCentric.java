@@ -40,8 +40,8 @@ public class DriveMecanumFieldCentric extends CommandBase {
 
     // Call Drive Method for Mecanum Field Centric
     sysMecanumDrivetrain.driveCartesian(speedX.getAsDouble(), 
-                                        speedY.getAsDouble(), 
-                                        speedRotation.getAsDouble(), 
+                                        - speedY.getAsDouble(), 
+                                        - speedRotation.getAsDouble(), 
                                         null);
 
 

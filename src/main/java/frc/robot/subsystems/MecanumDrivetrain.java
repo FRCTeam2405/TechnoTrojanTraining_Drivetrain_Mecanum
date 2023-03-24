@@ -28,8 +28,6 @@ public class MecanumDrivetrain extends SubsystemBase {
   // IMU
   private AHRS driveIMU;
 
-  // Subsystem Variable(s)
-  private boolean useFieldCentric;
 
   /**
    * <h3>Define Mecanum Drivetrain Subsystem</h3>
@@ -53,12 +51,10 @@ public class MecanumDrivetrain extends SubsystemBase {
     driveMecanum = new MecanumDrive(driveFrontLeft, driveBackLeft, driveFrontRight, driveBackRight);
 
     // Initialize IMU
-    useFieldCentric = Constants.Drivetrains.Mecanum.kUseFieldCentric;
-
     try {
       driveIMU = new AHRS(SPI.Port.kMXP);
-      useFieldCentric = true;
-    } catch(RuntimeException ex) {
+    } 
+    catch(RuntimeException ex) {
       DriverStation.reportError("Error Initializing NavX (Field Centric Disabled): " + ex.getMessage(), true);
     }
 

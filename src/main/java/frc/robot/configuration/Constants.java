@@ -82,7 +82,7 @@ public class Constants {
                 public static final class Axis {
                     public static final int kSpeedX = 1;
                     public static final int kSpeedY = 0;
-                    public static final int kSpeedRotational = 4;
+                    public static final int kSpeedRotational = 3;
 
                 }
 

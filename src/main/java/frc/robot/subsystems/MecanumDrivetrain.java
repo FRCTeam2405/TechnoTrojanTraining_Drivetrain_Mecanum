@@ -4,30 +4,28 @@
 
 package frc.robot.subsystems;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
+import com.ctre.phoenix6.hardware.TalonFX;
 import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.drive.MecanumDrive;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.configuration.Constants;
 
 public class MecanumDrivetrain extends SubsystemBase {
 
   // Drive Motor(s)
-  private WPI_TalonFX driveFrontLeft;
-  private WPI_TalonFX driveFrontRight;
-  private WPI_TalonFX driveBackLeft;
-  private WPI_TalonFX driveBackRight;
+  private TalonFX driveFrontLeft;
+  private TalonFX driveFrontRight;
+  private TalonFX driveBackLeft;
+  private TalonFX driveBackRight;
 
   // Drive Style
   private MecanumDrive driveMecanum;
 
   // IMU
   private AHRS driveIMU;
-
 
   /**
    * <h3>Define Mecanum Drivetrain Subsystem</h3>
@@ -36,16 +34,16 @@ public class MecanumDrivetrain extends SubsystemBase {
   public MecanumDrivetrain() {
 
     // Initialize Drive Motor(s)
-    driveFrontLeft = new WPI_TalonFX(Constants.Drivetrains.Mecanum.Motors.kFrontLeftPortID);
-    driveFrontRight = new WPI_TalonFX(Constants.Drivetrains.Mecanum.Motors.kFrontRightPortID);
-    driveBackLeft = new WPI_TalonFX(Constants.Drivetrains.Mecanum.Motors.kBackLeftPortID);
-    driveBackRight = new WPI_TalonFX(Constants.Drivetrains.Mecanum.Motors.kBackRightPortID);
+    driveFrontLeft = new TalonFX(Constants.Drivetrain.Mecanum.Motors.kFrontLeftPortID);
+    driveFrontRight = new TalonFX(Constants.Drivetrain.Mecanum.Motors.kFrontRightPortID);
+    driveBackLeft = new TalonFX(Constants.Drivetrain.Mecanum.Motors.kBackLeftPortID);
+    driveBackRight = new TalonFX(Constants.Drivetrain.Mecanum.Motors.kBackRightPortID);
 
     // Motor Configuration(s)
-    driveFrontLeft.setInverted(Constants.Drivetrains.Mecanum.Motors.kFrontLeftReversed);
-    driveFrontRight.setInverted(Constants.Drivetrains.Mecanum.Motors.kFrontRightReversed);
-    driveBackLeft.setInverted(Constants.Drivetrains.Mecanum.Motors.kBackLeftReversed);
-    driveBackRight.setInverted(Constants.Drivetrains.Mecanum.Motors.kBackRightReversed);
+    driveFrontLeft.setInverted(Constants.Drivetrain.Mecanum.Motors.kFrontLeftReversed);
+    driveFrontRight.setInverted(Constants.Drivetrain.Mecanum.Motors.kFrontRightReversed);
+    driveBackLeft.setInverted(Constants.Drivetrain.Mecanum.Motors.kBackLeftReversed);
+    driveBackRight.setInverted(Constants.Drivetrain.Mecanum.Motors.kBackRightReversed);
 
     // Initialize Macanum Drive
     driveMecanum = new MecanumDrive(driveFrontLeft, driveBackLeft, driveFrontRight, driveBackRight);

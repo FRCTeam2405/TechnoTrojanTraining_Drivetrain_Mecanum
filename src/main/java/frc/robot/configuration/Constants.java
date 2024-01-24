@@ -10,7 +10,7 @@ package frc.robot.configuration;
 */
 public class Constants {
 
-    public static final class Drivetrains {
+    public static final class Drivetrain {
 
 
         /**
@@ -71,49 +71,36 @@ public class Constants {
      * <p>A primary and secondary control device is defined for each human element.
      * more can be added if the custom control schema requires
      */
-    public static final class InputControls {
+    public static final class InputControl {
 
         public static final class DriverOne {
 
             public static final class Primary {
                 public static final int kPortID = 0;
-                public static final double kDeadband = 0.05;
+                public static final double kDeadband = 0.02;
 
                 public static final class Axis {
-                    public static final int kSpeedX = 1;
-                    public static final int kSpeedY = 0;
-                    public static final int kSpeedRotational = 4;
+                    public static final int kDriveXInputID = 1;
+                    public static final int kDriveYInputID = 0;
+                    public static final int kDriveRotationXInputID = 4;
+                    public static final int kDriveRotationYInputID = 5;
 
                 }
 
                 public static final class Buttons {
+                    public static final int kGyroResetInputID = 1;
 
                 }
 
             }
-
-            public static final class Secondary {
-                public static final int kPortID = 1;
-                public static final double kDeadband = 0.05;
-
-                public static final class Axis {
-
-                }
-
-                public static final class Buttons {
-                    
-                }
-
-            }
-
 
         }
 
         public static final class DriverTwo {
 
             public static final class Primary {
-                public static final int kPortID = 2;
-                public static final double kDeadband = 0.05;
+                public static final int kPortID = 1;
+                public static final double kDeadband = 0.02;
 
                 public static final class Axis {
 
@@ -124,21 +111,6 @@ public class Constants {
                 }
 
             }
-
-            public static final class Secondary {
-                public static final int kPortID = 3;
-                public static final double kDeadband = 0.05;
-
-                public static final class Axis {
-
-                }
-
-                public static final class Buttons {
-                    
-                }
-                
-            }
-
 
         }
 

@@ -96,7 +96,7 @@ public class Constants {
 
             public static final class Primary {
                 public static final int kPortID = 1;
-                public static final double kDeadband = 0.02;
+                public static final double kDeadband = 0.1;
 
                 public static final class Axis {
 

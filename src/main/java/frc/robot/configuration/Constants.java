@@ -12,7 +12,6 @@ public class Constants {
 
     public static final class Drivetrain {
 
-
         /**
          * <h3>Mecanum Drive Constants</h3>
          */
@@ -48,12 +47,9 @@ public class Constants {
 
                 }
 
-
-
             }
             
         }
-
 
     }
 
@@ -87,7 +83,7 @@ public class Constants {
 
                 }
 
-                public static final class Buttons {
+                public static final class Button {
                     public static final int kGyroResetInputID = 1;
 
                 }
@@ -106,7 +102,7 @@ public class Constants {
 
                 }
 
-                public static final class Buttons {
+                public static final class Button {
 
                 }
 
@@ -114,12 +110,6 @@ public class Constants {
 
         }
 
-
-
     }
-
-
-
-
 
 }

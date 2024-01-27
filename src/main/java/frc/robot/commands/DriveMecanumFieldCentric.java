@@ -41,8 +41,7 @@ public class DriveMecanumFieldCentric extends Command {
     sysMecanumDrivetrain.driveCartesian(speedX.getAsDouble(), 
                                         - speedY.getAsDouble(), 
                                         - speedRotation.getAsDouble(), 
-                                        null);
-
+                                        sysMecanumDrivetrain.getAngle());
 
   }
 
@@ -53,8 +52,7 @@ public class DriveMecanumFieldCentric extends Command {
     // Stop Drive Action for Mecanum Field Centric
     sysMecanumDrivetrain.driveCartesian(0, 
                                         0, 
-                                        0, 
-                                        null);
+                                        0);
 
   }
 

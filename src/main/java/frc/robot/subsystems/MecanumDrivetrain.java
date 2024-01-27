@@ -74,8 +74,14 @@ public class MecanumDrivetrain extends SubsystemBase {
   }
 
   public Rotation2d getAngle() {
-    return new Rotation2d(driveIMU.getAngle()) ;
+    return new Rotation2d(driveIMU.getAngle());
   }
+
+  public void zeroGyro() {
+    driveIMU.reset();
+  }
+
+
 
   @Override
   public void periodic() {

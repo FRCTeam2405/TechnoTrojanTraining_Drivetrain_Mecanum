@@ -4,9 +4,11 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
+import edu.wpi.first.wpilibj2.command.InstantCommand;
+import edu.wpi.first.wpilibj2.command.button.CommandJoystick;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.DriveMecanumFieldCentric;
 import frc.robot.commands.DriveMecanumRobotCentric;
 import frc.robot.configuration.Constants;
@@ -21,7 +23,7 @@ public class RobotContainer {
 
 
   // Input Device(s)
-  private final Joystick inputDriverOnePrimary = new Joystick(Constants.InputControl.DriverOne.Primary.kPortID);
+  private final CommandJoystick inputDriverOne = new CommandJoystick(Constants.InputControl.DriverOne.Primary.kPortID);
 
   // Input Button(s)
 
@@ -33,21 +35,21 @@ public class RobotContainer {
     // Drive Command(s)
     DriveMecanumFieldCentric cmdDriveMecanumFieldCentric = new DriveMecanumFieldCentric(
       sysMecanumDrivetrain, 
-      () -> (Math.abs(inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID)) > 0)
-              ? inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID) : 0, 
-      () -> (Math.abs(inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID)) > 0)
-              ? inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID) : 0, 
-      () -> (Math.abs(inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID)) > 0)
-              ? inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID) : 0);
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID)) > 0)
+              ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID) : 0, 
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID)) > 0)
+              ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID) : 0, 
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID)) > 0)
+              ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID) : 0);
 
     DriveMecanumRobotCentric cmdDriveMecanumRobotCentric = new DriveMecanumRobotCentric(
       sysMecanumDrivetrain, 
-      () -> (Math.abs(inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID)) > 0)
-              ? inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID) : 0, 
-      () -> (Math.abs(inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID)) > 0)
-              ? inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID) : 0, 
-      () -> (Math.abs(inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID)) > 0)
-              ? inputDriverOnePrimary.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID) : 0);
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID)) > 0)
+              ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID) : 0, 
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID)) > 0)
+              ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID) : 0, 
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID)) > 0)
+              ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID) : 0);
 
     // Set Default Drivetrain Command - (Field or Robot Centric)
     sysMecanumDrivetrain.setDefaultCommand(
@@ -57,7 +59,15 @@ public class RobotContainer {
 
   }
 
-  private void configureBindings() {}
+  private void configureBindings() {
+
+    // Drivetrain Command(s)
+    // ---------------------------------------
+
+    // Reset / Zero Gyro
+    new JoystickButton(inputDriverOne.getHID(), Constants.InputControl.DriverOne.Primary.Button.kGyroResetInputID).onTrue(new InstantCommand(sysMecanumDrivetrain::zeroGyro));
+
+  }
 
   public Command getAutonomousCommand() {
     return Commands.print("No autonomous command configured");

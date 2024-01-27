@@ -35,20 +35,20 @@ public class RobotContainer {
     // Drive Command(s)
     DriveMecanumFieldCentric cmdDriveMecanumFieldCentric = new DriveMecanumFieldCentric(
       sysMecanumDrivetrain, 
-      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID)) > 0)
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID)) > Constants.InputControl.DriverOne.Primary.kDeadband)
               ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID) : 0, 
-      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID)) > 0)
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID)) > Constants.InputControl.DriverOne.Primary.kDeadband)
               ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID) : 0, 
-      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID)) > 0)
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID)) > Constants.InputControl.DriverOne.Primary.kDeadband)
               ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID) : 0);
 
     DriveMecanumRobotCentric cmdDriveMecanumRobotCentric = new DriveMecanumRobotCentric(
       sysMecanumDrivetrain, 
-      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID)) > 0)
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID)) > Constants.InputControl.DriverOne.Primary.kDeadband)
               ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveXInputID) : 0, 
-      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID)) > 0)
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID)) > Constants.InputControl.DriverOne.Primary.kDeadband)
               ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveYInputID) : 0, 
-      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID)) > 0)
+      () -> (Math.abs(inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID)) > Constants.InputControl.DriverOne.Primary.kDeadband)
               ? inputDriverOne.getRawAxis(Constants.InputControl.DriverOne.Primary.Axis.kDriveRotationXInputID) : 0);
 
     // Set Default Drivetrain Command - (Field or Robot Centric)

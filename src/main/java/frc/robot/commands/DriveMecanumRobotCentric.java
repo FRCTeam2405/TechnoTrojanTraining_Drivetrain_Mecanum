@@ -7,6 +7,7 @@ package frc.robot.commands;
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.configuration.Constants;
 import frc.robot.subsystems.MecanumDrivetrain;
 
 public class DriveMecanumRobotCentric extends Command {
@@ -39,9 +40,9 @@ public class DriveMecanumRobotCentric extends Command {
   public void execute() {
 
     // Call Drive Method for Mecanum Robot Centric
-    sysMecanumDrivetrain.driveCartesian(speedX.getAsDouble(), 
-                                        - speedY.getAsDouble(), 
-                                        - speedRotation.getAsDouble());
+    sysMecanumDrivetrain.driveCartesian(speedX.getAsDouble() * Constants.Drivetrain.Mecanum.Motors.kOutputModDefault, 
+                                        - speedY.getAsDouble() * Constants.Drivetrain.Mecanum.Motors.kOutputModDefault, 
+                                        - speedRotation.getAsDouble() * Constants.Drivetrain.Mecanum.Motors.kOutputModDefault);
   }
 
   // Called once the command ends or is interrupted.

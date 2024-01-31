@@ -5,10 +5,11 @@
 package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
-import edu.wpi.first.wpilibj2.command.CommandBase;
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.configuration.Constants;
 import frc.robot.subsystems.MecanumDrivetrain;
 
-public class DriveMecanumFieldCentric extends CommandBase {
+public class DriveMecanumFieldCentric extends Command {
 
   // Subsystem(s)
   private final MecanumDrivetrain sysMecanumDrivetrain;
@@ -38,11 +39,10 @@ public class DriveMecanumFieldCentric extends CommandBase {
   public void execute() {
 
     // Call Drive Method for Mecanum Field Centric
-    sysMecanumDrivetrain.driveCartesian(speedX.getAsDouble(), 
-                                        - speedY.getAsDouble(), 
-                                        - speedRotation.getAsDouble(), 
-                                        null);
-
+    sysMecanumDrivetrain.driveCartesian(speedX.getAsDouble() * Constants.Drivetrain.Mecanum.Motors.kOutputModDefault, 
+                                        - speedY.getAsDouble() * Constants.Drivetrain.Mecanum.Motors.kOutputModDefault, 
+                                        - speedRotation.getAsDouble() * Constants.Drivetrain.Mecanum.Motors.kOutputModDefault, 
+                                        sysMecanumDrivetrain.getAngle());
 
   }
 
@@ -53,8 +53,7 @@ public class DriveMecanumFieldCentric extends CommandBase {
     // Stop Drive Action for Mecanum Field Centric
     sysMecanumDrivetrain.driveCartesian(0, 
                                         0, 
-                                        0, 
-                                        null);
+                                        0);
 
   }
 
